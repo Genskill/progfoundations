@@ -20,14 +20,20 @@ void print_array(int nos[], int count) {
 }
 
 void bsort(int nos[], int count) {
+  int swapped;
   for (int j=0; j<count; j++) {
-    for (int i=0; i<count-1; i++) {
+    swapped = 0;
+    for (int i=0; i<count-1-j; i++) {
       if (nos[i] > nos[i+1]) {
         /* Swap */
+        swapped = 1;
         int t = nos[i+1];
         nos[i+1] = nos[i];
         nos[i] = t;
       }
+    }
+    if (swapped == 0) {
+      break;
     }
   }
 }
