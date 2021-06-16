@@ -2,21 +2,26 @@
 #include <cs50.h>
 #include <string.h>
 
-void get_password();
+int get_password();
 
 int main(void) {
-  get_password();
-  printf("Authenticated!\n");
+  if (get_password()) {
+    printf("Authenticated!\n");
+  } else {
+    printf("Failed!\n");
+  }
 }
 
-void get_password() {
+int get_password() {
   string secret = "iamhacker";
   string input;
   input = get_string("Enter password ");
 
+  printf("%i\n", strcmp(secret, input));
   if (strcmp(secret, input) == 0) {
-    printf("They are equal!\n");
+    return 1;
   } else {
-    printf("They are not equal!\n");
+    return 0;
   }
 }
+
