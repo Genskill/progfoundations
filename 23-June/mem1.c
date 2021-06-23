@@ -27,5 +27,26 @@ int main(void) {
   printf("Size of char %li\n", sizeof(t));
   printf("Size of char * %li\n", sizeof(pc));
 
+  /* char c is a char */
+  /* char *c is a pointer to (char) */
+  /* char **c is a pointer to (pointer to (char)) */
+  /* char ***c is a pointer to (pointer to (pointer to (char))) */
 
-  }
+  printf("--------------------------------------------------\n");  
+  char ** ppc = &pc;
+  printf("Address of t is %p\n", &t);
+  printf("Value of pc is %p\n", pc);
+  printf("Address of pc is %p\n", &pc);
+  printf("Value of ppc is %p\n", ppc);
+  printf("Value at address stored at ppc is %c\n", **ppc);
+
+
+  int *q1 = (int *)0xDEADBEEF;
+  printf("%p\n", q1);
+  int a = 10;
+  int b = 5;
+  q1 = &a; /* Make q1 point to a */
+  printf("Value at q1 - %i\n", *q1);
+  q1 = &b;
+  printf("Value at q1 - %i\n", *q1);
+}
