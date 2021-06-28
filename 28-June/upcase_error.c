@@ -9,7 +9,7 @@ char * upcase(char *);
 int foo;
 
 int main(void) {
-  char *s = get_string("Enter a name ");
+  char *s = "Dennis Ritchie";
   printf("%s\n", s);
   char *us = upcase(s); // 0x123456
   printf("%s\n", us);
@@ -18,11 +18,9 @@ int main(void) {
 
 char * upcase(char *s) {
   int n = strlen(s);
-  /* char ret[n+1]; */ /*Scope of ret : This function. Lifetime of ret : This function */
-  char *ret = malloc (sizeof(char) * (strlen(s)+1));/*Scope of ret : This function. Lifetime of ret is when this is manually freed */
+  char ret[n+1]; /* Scope of ret : This function. Lifetime of ret : This function */
   for (int i=0; i<=strlen(s); i++) {
     ret[i] = toupper(s[i]);
   }
-  printf("%s\n", ret);
   return ret;
 }

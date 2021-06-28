@@ -9,6 +9,7 @@ int main(void) {
   for (int i=0; n[i] != -1; i++) {
     printf("%i\n", n[i]);
     }
+  free(n);
 }
 
 int *read_nos(){
