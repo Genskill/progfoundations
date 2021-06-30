@@ -29,11 +29,14 @@ node * read_names() {
   node *current = NULL; /* Current node in the list.*/
   node *p; /* Temporary */
   char s[100];
+  FILE *fp;
+  int status;
+  fp = fopen("names.txt", "r");
   do {
     /* Read a new name */
-    printf("Enter name. Enter # to stop.");
-    scanf("%s", s); 
-    if (strcmp(s,"#") == 0) {
+    /* printf("Enter name. Enter # to stop."); */
+    status = fscanf(fp, "%s\n", s); 
+    if (status == EOF) {
       break; /* Stop reading if we type # */
     }
     /* Create a node for it */
@@ -46,7 +49,8 @@ node * read_names() {
       current->next = p; /* Attach the new node p to the existing list */
       current = p; /* Update the head to point to the new node */
     }
-  } while (strcmp(s, "#") != 0);
+  } while (status != EOF);
+  fclose(fp);
   return root;
 }
 
