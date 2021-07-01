@@ -28,7 +28,7 @@ get_names() {
   printf("Enter number of names ");
   scanf("%d", &n);
   printf ("We got %d \n", n);
-  ret = malloc(sizeof(char *) * n+1); /* Will allocate n char *s for me 0x1234 */ 
+  ret = malloc(sizeof(char *) * n+1); /* Will allocate n+1 char *s for me 0x1234 */ 
   for (int i = 0; i<n; i++) {
     ret[i] = malloc(sizeof(char) * 100); /* Assumes that a name can't have more than 100 characters */
     printf("Enter name %d ", i+1);
